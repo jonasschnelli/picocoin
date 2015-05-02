@@ -1,11 +1,7 @@
 
 AM_CPPFLAGS	= @GLIB_CFLAGS@ -I$(top_srcdir)/include
 
-bin_PROGRAMS	= picocoin blkscan blkstats rawtx
-
-if ENABLE_BRD
-  bin_PROGRAMS += brd
-endif
+bin_PROGRAMS	= brd picocoin blkscan blkstats rawtx
 
 noinst_LIBRARIES= libnode.a
 
@@ -13,14 +9,13 @@ libnode_a_SOURCES=	\
 	peerman.c	\
 	peerman.h
 
-if ENABLE_BRD
-  brd_SOURCES=		\
-  	brd.c		\
-  	brd.h
+brd_SOURCES=		\
+	brd.c		\
+	brd.h
 
-  brd_LDADD	= libnode.a ../lib/libccoin.a \
-  		  @GLIB_LIBS@ @CRYPTO_LIBS@ @EVENT_LIBS@
-endif
+brd_LDADD	= libnode.a ../lib/libccoin.a \
+		  @GLIB_LIBS@ @CRYPTO_LIBS@ @EVENT_LIBS@
+
 picocoin_SOURCES=	\
 	aes.c		\
 	main.c		\
