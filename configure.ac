@@ -60,6 +60,13 @@ case "${host}" in
 		;;
 esac
 
+# Enable brd
+AC_ARG_ENABLE([brd],
+  [AS_HELP_STRING([--enable-brd],
+  [enable brd (default is yes)])],
+  [enable_brd=$enableval],
+  [enable_brd=yes])
+
 dnl -----------------------------
 dnl Checks for required libraries
 dnl -----------------------------
@@ -83,6 +90,7 @@ AC_CHECK_FUNCS(fdatasync memmem strndup mkstemp)
 dnl -----------------
 dnl Configure options
 dnl -----------------
+AM_CONDITIONAL([ENABLE_BRD],[test x$enable_brd = xyes])
 
 dnl --------------------------
 dnl autoconf output generation
