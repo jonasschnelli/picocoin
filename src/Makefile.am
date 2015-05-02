@@ -29,7 +29,10 @@ picocoin_LDADD	= libnode.a ../lib/libccoin.a \
 
 blkscan_LDADD	= ../lib/libccoin.a \
 		  @GLIB_LIBS@ @CRYPTO_LIBS@ @ARGP_LIBS@
+		  @GLIB_LIBS@ @ARGP_LIBS@ @CRYPTO_LIBS@
 blkstats_LDADD	= ../lib/libccoin.a \
 		  @GLIB_LIBS@ @CRYPTO_LIBS@
+		  @GLIB_LIBS@ @ARGP_LIBS@ @CRYPTO_LIBS@
 rawtx_LDADD	= ../lib/libccoin.a \
 		  @GLIB_LIBS@ @CRYPTO_LIBS@ @JANSSON_LIBS@
+		  @GLIB_LIBS@ @CRYPTO_LIBS@ @ARGP_LIBS@ @JANSSON_LIBS@
